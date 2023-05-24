@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import Inputfield from "../components/login&register/Inputfield";
-import Button from "../components/login&register/Button";
-
+import FormInputfields from "../components/login&register/FormInputfields";
+import FormButtons from "../components/login&register/FormButtons";
 export default function LoginPage() {
   const [userCredentail, setUserCredential] = useState(undefined);
 
+  console.log(userCredentail);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h3>Login</h3>
-      <Inputfield setUserCredential={setUserCredential} passwordType="text" />
-      <Button submitTxt="Sign in" isHidding={false} />
+      <FormInputfields setUserCredential={setUserCredential} passwordType="text" />
+      <FormButtons submitTxt="Sign in" isHidding={false} navigateTo="/register" />
     </form>
   );
 }
