@@ -21,3 +21,13 @@ test("Yves skriver in sina använder uppgiften och Yves enhet tar emot en giltig
 
   expect(mockedUsedNavigate).toHaveBeenCalledWith("/browsing");
 });
+
+test("Yves vill skapa ett konto, när Yves trycker på skapa konto då blir hennes enhet on diricerad till register sidan", () => {
+  render(<LoginPage />);
+
+  const registerBtn = screen.getByTestId("registerBtn");
+
+  fireEvent.click(registerBtn);
+
+  expect(mockedUsedNavigate).toHaveBeenCalledWith("/register");
+});
