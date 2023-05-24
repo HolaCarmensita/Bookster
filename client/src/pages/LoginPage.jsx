@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import Inputfield from "../components/login/Inputfield";
-import Button from "../components/login/Button";
+import Inputfield from "../components/login&register/Inputfield";
+import Button from "../components/login&register/Button";
 
 export default function LoginPage() {
   const [userCredentail, setUserCredential] = useState(undefined);
-
-  console.log(userCredentail);
 
   return (
     <form>
