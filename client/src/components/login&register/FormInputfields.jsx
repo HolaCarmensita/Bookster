@@ -14,10 +14,10 @@ export default function FormInputfield({ setUserCredential, passwordType }) {
   return (
     <>
       <label>username:</label>
-      <input type="text" placeholder="Type your username..." onChange={(e) => handleInputValue(e.target)} />
+      <input type="text" data-testid="username" placeholder="Type your username..." onChange={(e) => handleInputValue(e.target)} />
 
       <label>Password:</label>
-      <input type={passwordType} placeholder="Type your password..." name="password" onChange={(e) => handleInputValue(e.target)} />
+      <input type={passwordType} data-testid="password" placeholder="Type your password..." name="password" onChange={(e) => handleInputValue(e.target)} />
     </>
   );
 }

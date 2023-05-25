@@ -6,6 +6,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LoginPage />} />
+        <Route path="/browsing" element={<h3>Browsing</h3>} />
       </Routes>
     </>
   );

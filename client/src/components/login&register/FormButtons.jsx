@@ -8,7 +8,9 @@ export default function FormButtons({ submitTxt, isHidding, navigateTo }) {
         {navigateTo === "/register" ? "No account? Sign up " : "Already have an account? Sign in "}
         <Link to={navigateTo}>here!</Link>
       </p>
-      <button type="submit">{submitTxt}</button>
+      <button data-testid="submitBtn" type="submit">
+        {submitTxt}
+      </button>
       {isHidding === true ? null : (
         <button type="reset" onClick={() => navigate("/browser")}>
           Login as guest user
