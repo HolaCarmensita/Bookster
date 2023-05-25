@@ -1,5 +1,11 @@
+import BrowsingUserPage from './pages/BrowsingUserPage';
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <BrowsingUserPage />
+    </>
+  );
 }
 
 export default App;
