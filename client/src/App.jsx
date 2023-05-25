@@ -6,7 +6,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/browsing" element={<h3>Browsing</h3>} />
+        <Route path="/browser" element={<h3>Browser</h3>} />
+        <Route path="/register" element={<h3>Register</h3>} />
       </Routes>
     </>
   );

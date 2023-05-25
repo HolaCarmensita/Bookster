@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-// import LoginPage from "./LoginPage";
 import App from "./App";
+import { BrowserRouter } from "react-router-dom";
 
 const mockedUsedNavigate = jest.fn();
 jest.mock("react-router-dom", () => ({
@@ -9,35 +8,16 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedUsedNavigate,
 }));
 
-test("Yves skriver in sina använder uppgiften och Yves enhet tar emot en giltig jwt token sen sedan om dirigerad till browsing sidan.", () => {
+test("Yves vill/har inte skapa ett konto, Men när hon trycker på 'login as guest' så ska Yves enhet blir omdirigerad", async () => {
   render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
   );
 
-  const usernameValue = screen.getByTestId("username");
-  const passwordValue = screen.getByTestId("password");
-  const loginBtn = screen.getByTestId("submitBtn");
+  const guestBtn = screen.getByTestId("guestBtn");
 
-  fireEvent.change(usernameValue, { target: { value: "Yves" } });
-  fireEvent.change(passwordValue, { target: { value: "123" } });
+  fireEvent.click(guestBtn);
 
-  fireEvent.click(loginBtn);
-
-  expect(mockedUsedNavigate).toHaveBeenCalledWith("/browsing");
-});
-
-test("Yves vill skapa ett konto, när Yves trycker på skapa konto då blir hennes enhet on diricerad till register sidan", () => {
-  render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-
-  const registerBtn = screen.getByTestId("submitBtn");
-
-  fireEvent.click(registerBtn);
-
-  expect(mockedUsedNavigate).toHaveBeenCalledWith("/register");
+  expect(mockedUsedNavigate).toHaveBeenCalledWith("/browser");
 });

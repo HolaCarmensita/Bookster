@@ -1,3 +1,5 @@
+import memoryService from "./memoryService";
+
 const fetchOptions = async (url, method, data) => {
   const options = {
     method: method,
@@ -18,5 +20,7 @@ async function register(userDetails) {
   return await fetchOptions(`http://127.0.0.1:3030/auth/register`, "POST", userDetails);
 }
 
-const authService = { login, register };
+const isAuthenticated = () => memoryService.getLocalValue("JWT_TOKEN") !== null;
+
+const authService = { login, register, isAuthenticated };
 export default authService;
