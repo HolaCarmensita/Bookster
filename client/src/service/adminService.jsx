@@ -67,6 +67,18 @@ async function deleteUser(username) {
   return await resp.json();
 }
 
-const adminService = { getUsers, putUserToAdmin, deleteUser };
+async function deleteBook(book) {
+  let resp = await performRequest("http://127.0.0.1:3030/admin/books", "DELETE", book);
+
+  return await resp.json();
+}
+
+async function updateBook(books) {
+  let resp = await performRequest("http://127.0.0.1:3030/admin/books", "PUT", books);
+
+  return await resp.json();
+}
+
+const adminService = { getUsers, putUserToAdmin, deleteUser, deleteBook, updateBook };
 
 export default adminService;

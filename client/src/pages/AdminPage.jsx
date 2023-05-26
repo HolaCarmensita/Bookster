@@ -2,7 +2,7 @@ import React, { useReducer, useState } from "react";
 import { UseAdminBookster } from "../hooks/useAdminBookster";
 import TableComponet from "../components/admin/TableComponet";
 import { useAdminReducer } from "../hooks/useAdminReducer";
-import ConfirmationComponent from "../components/admin/ConfirmationComponent";
+import ConfirmRouterComponent from "../components/admin/ConfirmRouterComponent";
 
 export default function AdminPage() {
   const [view, setView] = useState("user");
@@ -23,7 +23,7 @@ export default function AdminPage() {
           Users
         </button>
         {item?.map((data, i) => (
-          <ConfirmationComponent item={data} key={i} dispatch={dispatch} />
+          <ConfirmRouterComponent item={data} key={i} dispatch={dispatch} />
         ))}
         {(error && <p>404 could not found</p>) || (isLoading && <p>loading...</p>) || <TableComponet data={data} view={view} dispatch={dispatch} />}
       </div>
