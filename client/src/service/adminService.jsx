@@ -79,6 +79,12 @@ async function updateBook(books) {
   return await resp.json();
 }
 
-const adminService = { getUsers, putUserToAdmin, deleteUser, deleteBook, updateBook };
+async function addBook(book) {
+  let resp = await performRequest("http://127.0.0.1:3030/admin/books", "POST", book);
+
+  return await resp.json();
+}
+
+const adminService = { getUsers, putUserToAdmin, deleteUser, deleteBook, updateBook, addBook };
 
 export default adminService;

@@ -7,9 +7,6 @@ export default function EditBookComponent({ data, dispatch }) {
   const handleInputValue = ({ name, value }) => {
     setBook({ ...book, [name]: value });
     console.log(book);
-    // if (book[name] === "") {
-    //   setBook({ ...book, [name]: data.name });
-    // }
   };
 
   const handleClick = () => {

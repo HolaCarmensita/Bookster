@@ -3,9 +3,11 @@ import { UseAdminBookster } from "../hooks/useAdminBookster";
 import TableComponet from "../components/admin/TableComponet";
 import { useAdminReducer } from "../hooks/useAdminReducer";
 import ConfirmRouterComponent from "../components/admin/ConfirmRouterComponent";
+import AddBookComponent from "../components/admin/AddBookComponent";
 
 export default function AdminPage() {
   const [view, setView] = useState("user");
+  const [addBook, setAddBook] = useState(false);
   const [item, dispatch] = useReducer(useAdminReducer, []);
   const { isLoading, error, data } = UseAdminBookster(view);
 
@@ -22,6 +24,8 @@ export default function AdminPage() {
         <button value="user" onClick={(e) => handleClick(e)}>
           Users
         </button>
+        {view === "books" && <button onClick={() => setAddBook(true)}>Add Book</button>}
+        {addBook && <AddBookComponent isOpen={setAddBook} />}
         {item?.map((data, i) => (
           <ConfirmRouterComponent item={data} key={i} dispatch={dispatch} />
         ))}
