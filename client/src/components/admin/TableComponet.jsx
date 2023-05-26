@@ -1,7 +1,7 @@
 import React from "react";
 import TableBodyComponet from "./TableBodyComponet";
 
-export default function TableComponet({ data, view }) {
+export default function TableComponet({ data, view, dispatch }) {
   return (
     <table>
       <thead>
@@ -14,7 +14,7 @@ export default function TableComponet({ data, view }) {
         </tr>
       </thead>
       {data?.map((item, i) => (
-        <TableBodyComponet data={item} key={i} view={view} />
+        <TableBodyComponet data={item} key={i} view={view} dispatch={dispatch} />
       ))}
     </table>
   );

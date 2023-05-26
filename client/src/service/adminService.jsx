@@ -55,6 +55,18 @@ async function getUsers() {
   return await resp.json();
 }
 
-const adminService = { getUsers };
+async function putUserToAdmin(username) {
+  let resp = await performRequest("http://127.0.0.1:3030/admin/users", "PUT", username);
+
+  return await resp.json();
+}
+
+async function deleteUser(username) {
+  let resp = await performRequest("http://127.0.0.1:3030/admin/users", "DELETE", username);
+
+  return await resp.json();
+}
+
+const adminService = { getUsers, putUserToAdmin, deleteUser };
 
 export default adminService;
