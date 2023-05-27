@@ -4,7 +4,7 @@ import adminService from "../../service/adminService";
 export default function DeleteBookConfirmComponent({ data, dispatch }) {
   const handleClick = () => {
     adminService.deleteBook(data);
-    dispatch(() => dispatch({ type: "clear-book", book: { ...data } }));
+    dispatch({ type: "clear-book", book: { ...data } });
   };
   return (
     <div>

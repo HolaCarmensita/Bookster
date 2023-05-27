@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
-import BrowsingUserPage from "./pages/BrowsingUserPage";
+import BrowsingPage from "./pages/BrowsingPage";
 import AdminPage from "./pages/AdminPage";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/browser" element={<BrowsingUserPage />} />
+        <Route path="/browser" element={<BrowsingPage />} />
         <Route path="/register" element={<h3>Register</h3>} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>

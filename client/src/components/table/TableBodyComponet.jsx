@@ -1,7 +1,7 @@
 import React from "react";
 import TableActionBtnComponet from "./TableActionBtnComponet";
 
-export default function TableBodyComponet({ data, view, dispatch }) {
+export default function TableBodyComponet({ data, view, dispatch, role }) {
   return (
     <>
       <tbody>
@@ -11,8 +11,8 @@ export default function TableBodyComponet({ data, view, dispatch }) {
           {(view === "user" && <td>{data.purchases === undefined ? 0 : data.purchases} Purchases</td>) || (
             <td> {data.quantity === 0 ? "Out of stock" : data.quantity + " left"}</td>
           )}
-          {(view === "user" && <></>) || <td>unfinnished</td>}
-          <td>{<TableActionBtnComponet view={view} dispatch={dispatch} data={data} />}</td>
+          {view === "user" || role === "" ? <></> : <td>unfinnished</td>}
+          {(role === "ADMIN" && <td>{<TableActionBtnComponet view={view} dispatch={dispatch} data={data} />}</td>) || <></>}
         </tr>
       </tbody>
     </>

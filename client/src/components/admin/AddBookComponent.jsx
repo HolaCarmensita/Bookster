@@ -6,7 +6,6 @@ export default function AddBookComponent({ isOpen }) {
 
   const handleInputValue = ({ name, value }) => {
     setBook({ ...book, [name]: value });
-    console.log(book);
   };
 
   const handleClick = (e) => {

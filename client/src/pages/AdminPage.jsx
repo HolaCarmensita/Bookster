@@ -1,23 +1,28 @@
 import React, { useReducer, useState } from "react";
-import { UseAdminBookster } from "../hooks/useAdminBookster";
-import TableComponet from "../components/admin/TableComponet";
+import { UseQuaryBookster } from "../hooks/useQuaryBookster";
+import TableComponet from "../components/table/TableComponet";
 import { useAdminReducer } from "../hooks/useAdminReducer";
 import ConfirmRouterComponent from "../components/admin/ConfirmRouterComponent";
 import AddBookComponent from "../components/admin/AddBookComponent";
+import SearchComponent from "../components/search/SearchComponent";
 
 export default function AdminPage() {
-  const [view, setView] = useState("user");
+  const [view, setView] = useState("books");
+  const [quary, setQuary] = useState("");
   const [addBook, setAddBook] = useState(false);
   const [item, dispatch] = useReducer(useAdminReducer, []);
-  const { isLoading, error, data } = UseAdminBookster(view);
+  const { isLoading, error, data } = UseQuaryBookster(quary);
+  console.log(item);
 
   const handleClick = (e) => {
+    setQuary(e.target.value);
     setView(e.target.value);
   };
 
   return (
     <>
       <div>
+        <SearchComponent setQuary={setQuary} />
         <button value="books" onClick={(e) => handleClick(e)}>
           Books
         </button>
@@ -29,7 +34,9 @@ export default function AdminPage() {
         {item?.map((data, i) => (
           <ConfirmRouterComponent item={data} key={i} dispatch={dispatch} />
         ))}
-        {(error && <p>404 could not found</p>) || (isLoading && <p>loading...</p>) || <TableComponet data={data} view={view} dispatch={dispatch} />}
+        {(error && <p>404 could not found</p>) || (isLoading && <p>loading...</p>) || (
+          <TableComponet data={data} view={view} dispatch={dispatch} role="ADMIN" />
+        )}
       </div>
     </>
   );
