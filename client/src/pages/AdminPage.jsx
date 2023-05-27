@@ -5,6 +5,8 @@ import { useAdminReducer } from "../hooks/useAdminReducer";
 import ConfirmRouterComponent from "../components/admin/ConfirmRouterComponent";
 import AddBookComponent from "../components/admin/AddBookComponent";
 import SearchComponent from "../components/search/SearchComponent";
+import authService from "../service/authService";
+import { Navigate } from "react-router-dom";
 
 export default function AdminPage() {
   const [view, setView] = useState("books");
@@ -12,7 +14,11 @@ export default function AdminPage() {
   const [addBook, setAddBook] = useState(false);
   const [item, dispatch] = useReducer(useAdminReducer, []);
   const { isLoading, error, data } = UseQuaryBookster(quary);
-  console.log(item);
+  const [role] = useState(authService.getRole);
+
+  if (role !== "ADMIN") {
+    return <Navigate to="/" />;
+  }
 
   const handleClick = (e) => {
     setQuary(e.target.value);
@@ -22,7 +28,7 @@ export default function AdminPage() {
   return (
     <>
       <div>
-        <SearchComponent setQuary={setQuary} />
+        {(view === "books" && <SearchComponent setQuary={setQuary} view={view} />) || null}
         <button value="books" onClick={(e) => handleClick(e)}>
           Books
         </button>
