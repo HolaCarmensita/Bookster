@@ -28,11 +28,23 @@ export default function LoginPage() {
   };
 
   return (
-    <form onSubmit={(event) => handleSubmit(event, userCredentail, setServerMsg, navigate)}>
-      <h3>Login</h3>
-      <FormInputfields setUserCredential={setUserCredential} passwordType="password" />
+    <form
+      onSubmit={(event) =>
+        handleSubmit(event, userCredentail, setServerMsg, navigate)
+      }
+    >
+      <h2>Login</h2>
+
+      <FormInputfields
+        setUserCredential={setUserCredential}
+        passwordType="password"
+      />
       <p data-testid="serverMsg">{serverMsg}</p>
-      <FormButtons submitTxt="Sign in" isHidding={false} navigateTo="/register" />
+      <FormButtons
+        submitTxt="Sign in"
+        isHidding={false}
+        navigateTo="/register"
+      />
     </form>
   );
 }

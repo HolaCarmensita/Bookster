@@ -23,9 +23,11 @@ export default function RegisterPage() {
       setTimeout(() => <Navigate to="/" />, 1000);
     }
   };
+
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
       <h3>Register</h3>
+
       <FormInputfields
         setUserCredential={setUserCredential}
         passwordType="text"

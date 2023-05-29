@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import Button from './Button';
+import { useState } from "react";
+import Button from "./Button";
 
 function Form() {
   const checkUserExist = (event) => {};
@@ -12,13 +12,13 @@ function Form() {
     <>
       <form onSubmit={handleSubmit}>
         <h2>Login form</h2>
-        <Button type='submit' version='login'>
+        <Button type="submit" version="login">
           Login
         </Button>
       </form>
 
-      <Button version='guest'>Login as guest user</Button>
-      <Button version='register'>Register new account</Button>
+      <Button version="guest">Login as guest user</Button>
+      <Button version="register">Register new account</Button>
     </>
   );
 }
