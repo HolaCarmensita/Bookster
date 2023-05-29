@@ -31,7 +31,7 @@ export default function TableOrderBtnComponent({ data, setOrderMsg }) {
         +
       </button>
 
-      <button disabled={data.quantity === 0} onClick={() => buyBook()}>
+      <button data-testid="orderBtn" disabled={data.quantity === 0} onClick={() => buyBook()}>
         Order
       </button>
     </>
