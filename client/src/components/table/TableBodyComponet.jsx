@@ -7,7 +7,7 @@ export default function TableBodyComponet({ data, view, dispatch, role, setOrder
     <>
       <tbody>
         <tr>
-          <td>{(view === "user" && data.username) || data.title}</td>
+          <td data-testid={index + "title/username"}>{(view === "user" && data.username) || data.title}</td>
           <td data-testid={index + "role"}>{(view === "user" && data.role) || data.author}</td>
           {(view === "user" && <td>{data.purchases === undefined ? 0 : data.purchases.length} Purchases</td>) || (
             <td> {data.quantity === 0 ? "Out of stock" : data.quantity + " left"}</td>
