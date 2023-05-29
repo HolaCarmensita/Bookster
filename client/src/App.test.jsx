@@ -41,7 +41,7 @@ test("Admin ska kunna göra user till admin,för att fler ska kunna hålla sidan
 
   render(
     <BrowserRouter>
-      <AdminPage />
+      <AdminPage test={true} />
     </BrowserRouter>
   );
 

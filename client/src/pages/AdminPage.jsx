@@ -8,7 +8,7 @@ import SearchComponent from "../components/search/SearchComponent";
 import authService from "../service/authService";
 import { Navigate } from "react-router-dom";
 
-export default function AdminPage() {
+export default function AdminPage({ test }) {
   const [view, setView] = useState("books");
   const [quary, setQuary] = useState("");
   const [addBook, setAddBook] = useState(false);
@@ -16,9 +16,10 @@ export default function AdminPage() {
   const { isLoading, error, data } = UseQuaryBookster(quary);
   const [role] = useState(authService.getRole);
 
-  // if (role !== "ADMIN") {
-  //   return <Navigate to="/" />;
-  // }
+  if (role === "USER" || test === false) {
+    console.log("hej");
+    return <Navigate to="/" />;
+  }
 
   const handleClick = (e) => {
     setQuary(e.target.value);
