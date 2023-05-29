@@ -10,7 +10,7 @@ export function UseQuaryBookster(quary) {
     setIsLoading(true);
     setError(false);
 
-    const resultTimeoutId = setTimeout(async () => {
+    const resultIntervalId = setInterval(async () => {
       let data = undefined;
       if (quary === "user") {
         data = await adminService.getUsers();
@@ -20,7 +20,6 @@ export function UseQuaryBookster(quary) {
       } else {
         data = await fetch(`http://127.0.0.1:3030/library/books/search/${quary}`).then((resp) => resp.json());
       }
-
       if (data.length > 0) {
         setData(data);
       } else {
@@ -29,7 +28,7 @@ export function UseQuaryBookster(quary) {
       setIsLoading(false);
     }, 1000);
 
-    return () => clearTimeout(resultTimeoutId);
+    return () => clearInterval(resultIntervalId);
   }, [quary]);
 
   return { isLoading, error, data };

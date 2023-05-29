@@ -40,7 +40,8 @@ function getLocalJWTData() {
   }
 }
 
-function getRole() {
+function getRole(isAdmin) {
+  if (isAdmin === true) return "ADMIN";
   if (getLocalJWTData() === null) return null;
   return getLocalJWTData().role;
 }

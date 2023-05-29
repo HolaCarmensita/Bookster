@@ -14,7 +14,7 @@ test("När Yves skriver in sina användar uppgifter så får Yves ett confirmati
   const passwordField = screen.getByTestId("password");
   const loginBtn = screen.getByTestId("submitBtn");
 
-  fireEvent.change(usernameField, { target: { value: "Yves" } });
+  fireEvent.change(usernameField, { target: { value: "Bob" } });
   fireEvent.change(passwordField, { target: { value: "123" } });
 
   fireEvent.click(loginBtn);

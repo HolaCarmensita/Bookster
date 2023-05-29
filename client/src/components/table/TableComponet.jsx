@@ -17,7 +17,7 @@ export default function TableComponet({ data, view, dispatch, role }) {
           </tr>
         </thead>
         {data?.map((item, i) => (
-          <TableBodyComponet data={item} key={i} view={view} dispatch={dispatch} role={role} setOrderMsg={setOrderMsg} />
+          <TableBodyComponet data={item} key={i} view={view} dispatch={dispatch} role={role} setOrderMsg={setOrderMsg} index={i} />
         ))}
       </table>
     </div>

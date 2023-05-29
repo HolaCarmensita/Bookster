@@ -16,9 +16,9 @@ export default function AdminPage() {
   const { isLoading, error, data } = UseQuaryBookster(quary);
   const [role] = useState(authService.getRole);
 
-  if (role !== "ADMIN") {
-    return <Navigate to="/" />;
-  }
+  // if (role !== "ADMIN") {
+  //   return <Navigate to="/" />;
+  // }
 
   const handleClick = (e) => {
     setQuary(e.target.value);
@@ -29,12 +29,13 @@ export default function AdminPage() {
     <>
       <div>
         {(view === "books" && <SearchComponent setQuary={setQuary} view={view} />) || null}
-        <button value="books" onClick={(e) => handleClick(e)}>
+        <button value="books" data-testid="viewBookBtn" onClick={(e) => handleClick(e)}>
           Books
         </button>
-        <button value="user" onClick={(e) => handleClick(e)}>
+        <button data-testid="viewUserBtn" value="user" onClick={(e) => handleClick(e)}>
           Users
         </button>
+
         {view === "books" && <button onClick={() => setAddBook(true)}>Add Book</button>}
         {addBook && <AddBookComponent isOpen={setAddBook} />}
         {item?.map((data, i) => (
