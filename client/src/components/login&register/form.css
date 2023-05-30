@@ -21,9 +21,9 @@ label {
   align-self: flex-start;
 }
 
-.form-title,
-.form-input {
+.form-title {
   margin-bottom: 2rem;
+  font-size: 1.3rem;
 }
 
 .form-text {
