@@ -1,3 +1,11 @@
+/*
+EditBookComponent is component for editing an exting book
+all inputs uses handleInputValue onChange and uses useState to set value on exting objects with in book with help of a decon sctuctor 
+handleClick checks if the title,author or quantity is empty it takes the data from the prop data to add to the empty objects
+then send a http request with an object that contains previous data and the current data
+then the dispatch removes the item from the array
+ */
+
 import React, { useState } from "react";
 import adminService from "../../service/adminService";
 
