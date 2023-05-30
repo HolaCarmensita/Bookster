@@ -1,13 +1,13 @@
-// import { useLocation } from "react-router-dom";
-import Button from "./Button";
+import Button from "./HeaderButton";
 
 const webbAppName = "Bookster";
 
-function Header() {
+function Header({ username }) {
   return (
     <nav>
-      <h1>{webbAppName}</h1>
-      {/* <Button /> */}
+      <h1 className="bookster-header">{webbAppName}</h1>
+      <p className="header-username">{username}</p>
+      <Button />
     </nav>
   );
 }

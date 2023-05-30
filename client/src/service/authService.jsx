@@ -13,11 +13,19 @@ const fetchOptions = async (url, method, data) => {
 };
 
 async function login(userDetails) {
-  return await fetchOptions(`http://127.0.0.1:3030/auth/login`, "POST", userDetails);
+  return await fetchOptions(
+    `http://127.0.0.1:3030/auth/login`,
+    "POST",
+    userDetails
+  );
 }
 
 async function register(userDetails) {
-  return await fetchOptions(`http://127.0.0.1:3030/auth/register`, "POST", userDetails);
+  return await fetchOptions(
+    `http://127.0.0.1:3030/auth/register`,
+    "POST",
+    userDetails
+  );
 }
 
 const isAuthenticated = (isTrue) => {
@@ -45,5 +53,10 @@ function getRole() {
   return getLocalJWTData().role;
 }
 
-const authService = { login, register, isAuthenticated, getRole };
+function getUsername() {
+  if (getLocalJWTData() === null) return null;
+  return getLocalJWTData().username;
+}
+
+const authService = { login, register, isAuthenticated, getRole, getUsername };
 export default authService;
