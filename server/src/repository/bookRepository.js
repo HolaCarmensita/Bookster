@@ -1,7 +1,7 @@
-import fs from "fs";
-import crypto from "crypto";
+import fs from 'fs';
+import crypto from 'crypto';
 
-const books = JSON.parse(fs.readFileSync("./src/config/books.json", "utf8"));
+const books = JSON.parse(fs.readFileSync('./src/config/books.json', 'utf8'));
 let bookContexts = undefined;
 
 const getBookContext = () => {
@@ -20,7 +20,7 @@ const searchBooks = (query) => {
   query = query.toLowerCase();
   console.log(query);
   return getBookContext().books.filter((book) => {
-    return (book.title + " " + book.author).toLowerCase().includes(query);
+    return (book.title + ' ' + book.author).toLowerCase().includes(query);
   });
 };
 
@@ -38,7 +38,9 @@ const addBook = (book) => {
 
 const patchBook = (oldBook, newBook) => {
   const ctx = getBookContext();
-  ctx.books = ctx.books.map((entry) => (entry.title == oldBook.title ? { ...oldBook, ...newBook } : entry));
+  ctx.books = ctx.books.map((entry) =>
+    entry.title == oldBook.title ? { ...oldBook, ...newBook } : entry
+  );
   ctx.version = crypto.randomUUID();
 
   return ctx;
@@ -52,4 +54,11 @@ const deleteBook = (book) => {
   return ctx;
 };
 
-export default { getBooks, searchBooks, getBook, addBook, patchBook, deleteBook };
+export default {
+  getBooks,
+  searchBooks,
+  getBook,
+  addBook,
+  patchBook,
+  deleteBook,
+};
