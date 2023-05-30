@@ -11,3 +11,8 @@ body {
   background-color: white;
   color: black;
 }
+
+.wrapper {
+  width: 80vw;
+  background-color: red;
+}

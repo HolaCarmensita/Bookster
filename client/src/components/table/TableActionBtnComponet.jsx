@@ -27,7 +27,11 @@ export default function TableActionBtnComponet({ view, dispatch, data }) {
   };
   return (
     <>
-      <button disabled={!hasRoleAdmin()} onClick={(e) => handleClick(e)}>
+      <button
+        className='edit promote'
+        disabled={!hasRoleAdmin()}
+        onClick={(e) => handleClick(e)}
+      >
         {(view === 'user' && 'Promote') || 'Edit'}
       </button>
       <button value='delete' onClick={(e) => handleClick(e)}>

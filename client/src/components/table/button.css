@@ -9,18 +9,15 @@ button {
   cursor: pointer;
 }
 
-button:disabled {
-  color: red;
+.orderBtn:disabled,
+.edit:disabled,
+.promote:disabled {
+  background: #21b778;
 }
 
 .orderBtn:hover {
   background-color: #21b778; /* Green */
 }
-
-/* .disabled {
-  color: grey;
-  cursor: not-allowed;
-} DENNA FUNKAR INTE DÅ VI INTE HAR NÅGON PROP SOM GER KNAPPEN KLASSEN DISBALED */
 
 .minusBtn,
 .plusBtn {

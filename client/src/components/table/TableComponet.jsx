@@ -14,6 +14,7 @@ export default function TableComponet({
     <div>
       <p>{orderMsg}</p>
       <table data-cell='table_wrapper'>
+        <caption>Books</caption>
         <thead>
           <tr>
             <th>{(view === 'user' && 'Username') || 'Book title'}</th>

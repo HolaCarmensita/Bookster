@@ -16,12 +16,12 @@ td {
   text-align: left;
 }
 
-caption {
+/* caption {
   background-color: transparent;
   font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
-}
+} */
 
 th {
   background-color: #03c875;
@@ -37,7 +37,7 @@ tbody tr:nth-child(even) {
   background-color: #ddf5eb;
 }
 
-@media (min-width: 650px) {
+@media only screen and (min-width: 650px) {
   .order {
     display: grid;
     justify-content: start;
@@ -46,7 +46,7 @@ tbody tr:nth-child(even) {
   }
 }
 
-@media (max-width: 650px) {
+@media only screen and (max-width: 650px) {
   th {
     display: none;
   }
