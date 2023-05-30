@@ -1,0 +1,30 @@
+button {
+  font: inherit;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  background: #03c875;
+  border: none;
+  color: white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  color: red;
+}
+
+.orderBtn:hover {
+  background-color: #21b778; /* Green */
+}
+
+/* .disabled {
+  color: grey;
+  cursor: not-allowed;
+} DENNA FUNKAR INTE DÅ VI INTE HAR NÅGON PROP SOM GER KNAPPEN KLASSEN DISBALED */
+
+.minusBtn,
+.plusBtn {
+  background-color: transparent;
+  color: black;
+  padding: 0.1rem;
+}
