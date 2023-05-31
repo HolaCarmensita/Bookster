@@ -27,10 +27,15 @@ export default function LoginPage() {
     }
   };
 
+  // const headerBtn = () => {
+  //   return <button>sign out</button>;
+  // };
+
   return (
     <form
-      onSubmit={(event) =>
-        handleSubmit(event, userCredentail, setServerMsg, navigate)
+      onSubmit={
+        (event) => handleSubmit(event, userCredentail, setServerMsg, navigate)
+        // headerBtn()
       }
     >
       <h2>Login</h2>

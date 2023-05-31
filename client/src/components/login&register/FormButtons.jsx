@@ -2,10 +2,13 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function FormButtons({ submitTxt, isHidding, navigateTo }) {
   const navigate = useNavigate();
+
   return (
     <div>
       <p>
-        {navigateTo === "/register" ? "No account? Sign up " : "Already have an account? Sign in "}
+        {navigateTo === "/register"
+          ? "No account? Sign up "
+          : "Already have an account? Sign in "}
         <Link data-testid="hereBtn" to={navigateTo}>
           here!
         </Link>
@@ -14,7 +17,11 @@ export default function FormButtons({ submitTxt, isHidding, navigateTo }) {
         {submitTxt}
       </button>
       {isHidding === true ? null : (
-        <button data-testid="guestBtn" type="reset" onClick={() => navigate("/browser")}>
+        <button
+          data-testid="guestBtn"
+          type="reset"
+          onClick={() => navigate("/browser")}
+        >
           Login as guest user
         </button>
       )}
