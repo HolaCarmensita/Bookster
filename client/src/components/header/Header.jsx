@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Button from "./HeaderButton";
 
 const webbAppName = "Bookster";
 
 function Header({ username }) {
+  // const [location,setLocation] = useState(global.window.location.pathname);
   const location = global.window.location.pathname;
   return (
     <nav>
