@@ -1,3 +1,11 @@
+/**
+ * author Niklas Nguyen
+ *
+ * date 23-05-31
+ *
+ * adminService is to build quick and simple https requests functions that only users with a jwt token that has property role with value ADMIN in can use
+ */
+
 import memoryService from "./memoryService";
 
 const buildPostFetchOptions = (body) => ({
