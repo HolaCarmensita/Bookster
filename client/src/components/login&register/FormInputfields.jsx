@@ -1,3 +1,10 @@
+/*
+this input componet is for login and register form
+handleInputValue uses deconstruct to fill out the objects value in credential using useState
+setUserCredentail prop is in useEffect that updates every time credential changes and sends the data to its parent
+passwordType prop is for changeing the type on input field depending if it should be a text for register or password login
+ */
+
 import { useEffect, useState } from "react";
 
 export default function FormInputfield({ setUserCredential, passwordType }) {
