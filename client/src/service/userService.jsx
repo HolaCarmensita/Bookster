@@ -1,3 +1,11 @@
+/**
+ * author Niklas Nguyen
+ *
+ * date 23-05-31
+ *
+ * userSerivce has a function to make a http request to buy a book and send it to the server when ever a user calls its function
+ */
+
 import memoryService from "./memoryService";
 
 const fetchOptions = async (url, method, data) => {

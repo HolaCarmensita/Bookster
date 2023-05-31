@@ -1,3 +1,11 @@
+/**
+ * author Niklas Nguyen
+ *
+ * date 23-05-31
+ *
+ * authSerivce is used for sending http request to the server to authurize or creating an accont on the server as well a function that checks if the user has a key that will give a true or false value as well as to check what role user has
+ */
+
 import memoryService from "./memoryService";
 
 const fetchOptions = async (url, method, data) => {

@@ -1,3 +1,11 @@
+/**
+ * author Niklas Nguyen
+ *
+ * date 23-05-31
+ *
+ * memoryService has functions that stores JWT token in localstorage and to get the JWT token to send with an http request or to check for the username or role
+ */
+
 function saveLocalValue(ref, value) {
   value = JSON.stringify(value);
 
