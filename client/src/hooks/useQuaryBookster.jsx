@@ -1,3 +1,11 @@
+/**
+ * author Niklas Nguyen
+ *
+ * date 23-05-31
+ *
+ * a custom hook to fetch diffrent data depending of quary property and uses interval to make a short polling every second
+ */
+
 import { useEffect, useState } from "react";
 import adminService from "../service/adminService";
 
