@@ -1,3 +1,14 @@
+/**
+ * Author Niklas Nguyen
+ *
+ * date 23-05-31
+ *
+ * this component handles the amount of books the user order and sending a http request to the server
+ * two buttons has value minus and plus, there onClick function handleClick checks the value from the buttons to increase the amount value from useState or decrease, it checks so it cant go below 0 or that amount cant go above the data's quantity
+ * when the user presses on order button it calls the function buy book if the amount is 0 then the function return false and does nothing but if its more it makes a http request to the server with an object that contains the title from the book and the amount property, when it all goes well its send back a message from the server and the functions send it back to its parent using setOrderMsg prop
+ * if the quantity from the data prop is 0 then all the buttons gets disabled
+ */
+
 import React, { useState } from "react";
 import userService from "../../service/userService";
 

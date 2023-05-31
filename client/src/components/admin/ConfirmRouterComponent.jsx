@@ -1,4 +1,8 @@
-/*
+/** 
+ * 
+ * Author Niklas Nguyen
+ * 
+ * date 23-05-31
 this is a router component for diffrent confirmation like a pop-up
 props takes in data thru item
 item has a value in item.action that the componet checks do choose which component to show

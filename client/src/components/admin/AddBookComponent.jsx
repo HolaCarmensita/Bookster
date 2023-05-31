@@ -1,6 +1,9 @@
-/*
+/** 
+ * Author Niklas Nguyen
+ * 
+ * date 23-05-31
 This component takes in a prop that check if it should be visable or not
-it uses a useState that has three diffrent objects and its a function that handle each input value with a decon structor
+it uses a useState that has three diffrent propertys and its a function that handle each input value with a decon structor
 handleClick funtction checks the value of a button if its add, it checks if the book as a title and a author, if not it return false
 if it does it makes a http request to the server with the book object from useState and change the prop to false to close the component
 */

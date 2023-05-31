@@ -1,4 +1,8 @@
 /*
+* 
+ * Author Niklas Nguyen
+ * 
+ * date 23-05-31
 a confirmation components for deleting a user
 handleClick takes the data from the prop that contains the user and making a http request to the server with the user data to delete
 dispatch removes the user from an array that the reducer made

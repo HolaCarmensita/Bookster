@@ -1,4 +1,8 @@
 /*
+* 
+ * Author Niklas Nguyen
+ * 
+ * date 23-05-31
 this component containts buttons and shows diffrent type text or even shows depending on the props
 submitTxt is for changing the text for the submit button
 isHidding checks if the button that navigates directly to page without logging in
