@@ -3,15 +3,8 @@
 // import memoryService from "../../service/memoryService";
 // import FormButtons from "./FormButtons";
 
-function headerButton() {
-  console.log("hej");
-
-  return (
-    <>
-      <button>Sign out</button>
-      <button>Sign in</button>
-    </>
-  );
+function headerButton({ username }) {
+  return <>{(username === undefined && <button>Sign in</button>) || <button>Sign out</button>}</>;
 }
 // if (memoryService.getLocalValue("JWT_TOKEN") === null) {
 //   console.log("No auth");

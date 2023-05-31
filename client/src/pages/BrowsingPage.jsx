@@ -12,21 +12,21 @@ function BrowsingPage({ setUsername }) {
   const [role] = useState(authService.getRole());
   const { isLoading, error, data } = UseQuaryBookster(quary);
   useEffect(() => {
+    if (authService.isAuthenticated()) {
+      setUsername(authService.getUsername);
+    } else {
+      setUsername(undefined);
+    }
     if (role === "ADMIN") {
       navigate("/admin");
     }
-
-    setUsername(authService.getUsername);
-  }, [role, navigate]);
+  }, [role, navigate, setUsername]);
 
   return (
     <div>
       {/* <BrowsingHeader buttonChild="Browsing as a User" userName="Bertil" /> */}
       <SearchComponent setQuary={setQuary} />
-      {(error && <p>404 could not found</p>) ||
-        (isLoading && <p>loading...</p>) || (
-          <TableComponet data={data} role={role} />
-        )}
+      {(error && <p>404 could not found</p>) || (isLoading && <p>loading...</p>) || <TableComponet data={data} role={role} />}
     </div>
   );
 }
