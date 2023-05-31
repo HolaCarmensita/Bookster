@@ -26,7 +26,7 @@ export default function EditBookComponent({ data, dispatch }) {
   return (
     <div className='card'>
       <h4>Edit the book {data.title}</h4>
-      <div className='editBook-field'>
+      <div className='card-inputfield'>
         <label className='editBookLabel'>Title: {data.title}</label>
         <input
           type='text'

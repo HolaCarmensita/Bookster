@@ -9,12 +9,13 @@
   display: flex;
   gap: 1rem;
 }
-.navbar-buttons button {
+.navbar button {
   font: inherit;
   background-color: transparent;
   border: none;
-  color: pink;
+  color: black;
   cursor: pointer;
+  text-align: bottom;
 }
 
 .books:hover,
