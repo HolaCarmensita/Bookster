@@ -13,6 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function FormButtons({ submitTxt, isHidding, navigateTo }) {
   const navigate = useNavigate();
+
   return (
     <div>
       <p>
@@ -24,7 +25,7 @@ export default function FormButtons({ submitTxt, isHidding, navigateTo }) {
       <button type="submit" data-testid="submitBtn">
         {submitTxt}
       </button>
-      {(isHidding && <></>) || (
+      {isHidding === true ? null : (
         <button data-testid="guestBtn" type="reset" onClick={() => navigate("/browser")}>
           Login as guest user
         </button>
