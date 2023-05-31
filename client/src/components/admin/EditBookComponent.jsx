@@ -24,7 +24,7 @@ export default function EditBookComponent({ data, dispatch }) {
     return dispatch({ type: 'clear-book', book: { ...data } });
   };
   return (
-    <div className='editBook'>
+    <div className='card'>
       <h4>Edit the book {data.title}</h4>
       <div className='editBook-field'>
         <label className='editBookLabel'>Title: {data.title}</label>
@@ -35,7 +35,7 @@ export default function EditBookComponent({ data, dispatch }) {
           onChange={(e) => handleInputValue(e.target)}
         />
       </div>
-      <div className='editBook-field'>
+      <div className='card-inputfield'>
         <label>Author: {data.author}</label>
         <input
           type='text'
@@ -44,7 +44,7 @@ export default function EditBookComponent({ data, dispatch }) {
           onChange={(e) => handleInputValue(e.target)}
         />
       </div>
-      <div className='editBook-field'>
+      <div className='card-inputfield'>
         <label>Quantity: {data.quantity}</label>
         <input
           type='number'
@@ -54,7 +54,7 @@ export default function EditBookComponent({ data, dispatch }) {
         />
       </div>
 
-      <div className='editBook-buttons'>
+      <div className='card-buttons'>
         <button onClick={() => handleClick()}>Save changes</button>
         <button
           onClick={() => dispatch({ type: 'clear-book', book: { ...data } })}

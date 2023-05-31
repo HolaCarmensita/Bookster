@@ -1,5 +1,4 @@
 import React from 'react';
-import './button.css';
 
 export default function TableActionBtnComponet({ view, dispatch, data }) {
   const hasRoleAdmin = () => {

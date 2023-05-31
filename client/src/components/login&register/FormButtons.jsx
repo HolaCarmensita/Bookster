@@ -4,11 +4,12 @@ export default function FormButtons({ submitTxt, isHidding, navigateTo }) {
   const navigate = useNavigate();
   return (
     <>
-      <button type='submit' data-testid='submitBtn'>
+      <button className='login' type='submit' data-testid='submitBtn'>
         {submitTxt}
       </button>
       {isHidding === true ? null : (
         <button
+          className='guest'
           data-testid='guestBtn'
           type='reset'
           onClick={() => navigate('/browser')}

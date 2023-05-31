@@ -7,6 +7,7 @@ import AddBookComponent from '../components/admin/AddBookComponent';
 import SearchComponent from '../components/search/SearchComponent';
 import authService from '../service/authService';
 import { Navigate } from 'react-router-dom';
+import './navbar.css';
 
 export default function AdminPage() {
   const [view, setView] = useState('books');
@@ -28,13 +29,10 @@ export default function AdminPage() {
   return (
     <>
       <div className='navbar'>
-        {(view === 'books' && (
-          <SearchComponent setQuary={setQuary} view={view} />
-        )) ||
-          null}
         <button className='books' value='books' onClick={(e) => handleClick(e)}>
           Books
         </button>
+
         <button className='user' value='user' onClick={(e) => handleClick(e)}>
           Users
         </button>
@@ -43,15 +41,18 @@ export default function AdminPage() {
             Add Book
           </button>
         )}
+
+        {(view === 'books' && (
+          <SearchComponent setQuary={setQuary} view={view} />
+        )) ||
+          null}
       </div>
 
-      <div className='editBook-container'>
-        <div>
-          {addBook && <AddBookComponent isOpen={setAddBook} />}
-          {item?.map((data, i) => (
-            <ConfirmRouterComponent item={data} key={i} dispatch={dispatch} />
-          ))}
-        </div>
+      <div className='card-container'>
+        {addBook && <AddBookComponent isOpen={setAddBook} />}
+        {item?.map((data, i) => (
+          <ConfirmRouterComponent item={data} key={i} dispatch={dispatch} />
+        ))}
       </div>
 
       <div className='tableAdmin'>

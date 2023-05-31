@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import userService from '../../service/userService';
-import './button.css';
 
 export default function TableOrderBtnComponent({ data, setOrderMsg }) {
   const [amount, setAmount] = useState(0);

@@ -1,37 +1,59 @@
 .card-container {
   background-color: white;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  align-items: center;
 }
 
-.editBook {
+.card {
   width: 80%;
-  max-width: 430px;
+  max-width: 420px;
   padding: 3rem;
   margin: 2rem;
   border-radius: 0.2rem;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
-.editBook h4 {
+.card h4 {
   font-size: 1.2rem;
   text-align: center;
 }
 
-.editBook h4,
-.editBook-field input {
+.card h4,
+.card-inputfield input {
   margin-bottom: 1rem;
 }
 
-.editBook-buttons,
-.confirm-buttons {
+.card label {
+  letter-spacing: 0.5px;
+  display: flex;
+  align-self: self-start;
+  font-weight: bold;
+}
+
+.card input {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  border: 0;
+  padding: 1rem 0 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.card input::placeholder {
+  opacity: 0.65;
+  font-size: 0.9rem;
+}
+
+.card input:focus::placeholder {
+  color: black;
+  opacity: 0.65;
+}
+
+.card-buttons {
   display: flex;
   justify-content: center;
 }
 
-.editBook-buttons button,
-.confirm-buttons button {
+.card-buttons button {
   font: inherit;
   padding: 0.5rem;
   margin: 0.2rem;
@@ -40,31 +62,6 @@
   color: white;
   border-radius: 0.4rem;
   cursor: pointer;
-}
-
-.editBook-field label {
-  letter-spacing: 0.5px;
-  display: flex;
-  align-self: self-start;
-  font-weight: bold;
-}
-
-.editBook-field input {
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-  border: 0;
-  padding: 1rem 0 1rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.editBook-field input::placeholder {
-  opacity: 0.65;
-  font-size: 0.9rem;
-}
-
-.editBook-field input:focus::placeholder {
-  color: black;
-  opacity: 0.65;
 }
 
 .confirm {
@@ -77,18 +74,24 @@
   margin: 2rem;
 }
 
-@media only screen and (max-width: 650px) {
-  .editBook,
+@media only screen and (max-width: 430px) {
+  .card {
+    box-shadow: none;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .card,
   .confirm {
     margin: 0;
   }
 
-  .editBook-buttons {
+  .card-buttons {
     flex-direction: column;
   }
 
-  .editBook-field label,
-  .editBook-field input::placeholder {
+  .card label,
+  .card input::placeholder {
     font-size: 1rem;
   }
 }

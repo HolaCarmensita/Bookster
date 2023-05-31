@@ -1,4 +1,5 @@
 import React from 'react';
+import './searchcomponent.css';
 
 export default function SearchComponent({ setQuary }) {
   return (
