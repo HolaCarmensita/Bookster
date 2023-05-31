@@ -45,11 +45,13 @@ export default function AdminPage() {
         )}
       </div>
 
-      <div className='popUp'>
-        {addBook && <AddBookComponent isOpen={setAddBook} />}
-        {item?.map((data, i) => (
-          <ConfirmRouterComponent item={data} key={i} dispatch={dispatch} />
-        ))}
+      <div className='editBook-container'>
+        <div>
+          {addBook && <AddBookComponent isOpen={setAddBook} />}
+          {item?.map((data, i) => (
+            <ConfirmRouterComponent item={data} key={i} dispatch={dispatch} />
+          ))}
+        </div>
       </div>
 
       <div className='tableAdmin'>

@@ -34,7 +34,7 @@ export default function TableActionBtnComponet({ view, dispatch, data }) {
       >
         {(view === 'user' && 'Promote') || 'Edit'}
       </button>
-      <button value='delete' onClick={(e) => handleClick(e)}>
+      <button className='delete' value='delete' onClick={(e) => handleClick(e)}>
         Delete
       </button>
     </>

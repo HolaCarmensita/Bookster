@@ -36,7 +36,7 @@ export default function TableBodyComponet({
           </td>
         )}
         {(role === 'ADMIN' && (
-          <td data_cell='action'>
+          <td data_cell='action' className='action'>
             {
               <TableActionBtnComponet
                 view={view}
