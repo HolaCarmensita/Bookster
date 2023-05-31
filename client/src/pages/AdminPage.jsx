@@ -27,7 +27,7 @@ export default function AdminPage() {
 
   return (
     <>
-      <div>
+      <div className='navbar'>
         {(view === 'books' && (
           <SearchComponent setQuary={setQuary} view={view} />
         )) ||
@@ -43,10 +43,16 @@ export default function AdminPage() {
             Add Book
           </button>
         )}
+      </div>
+
+      <div className='popUp'>
         {addBook && <AddBookComponent isOpen={setAddBook} />}
         {item?.map((data, i) => (
           <ConfirmRouterComponent item={data} key={i} dispatch={dispatch} />
         ))}
+      </div>
+
+      <div className='tableAdmin'>
         {(error && <p>404 could not found</p>) ||
           (isLoading && <p>loading...</p>) || (
             <TableComponet
