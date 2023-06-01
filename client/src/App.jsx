@@ -7,9 +7,8 @@ import BrowsingHeader from './components/Browsing/BrowsingHeader';
 function App() {
   return (
     <>
+      <BrowsingHeader />
       <div className='wrapper'>
-        <BrowsingHeader browsingAs='Browsing as a User' userName='Bertil' />
-
         <Routes>
           <Route path='/' element={<LoginPage />} />
           <Route path='/browser' element={<BrowsingPage />} />

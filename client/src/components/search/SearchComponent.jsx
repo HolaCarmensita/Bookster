@@ -3,7 +3,7 @@ import './searchcomponent.css';
 
 export default function SearchComponent({ setQuary }) {
   return (
-    <div>
+    <div className='search-container'>
       <input
         className='search'
         type='text'
