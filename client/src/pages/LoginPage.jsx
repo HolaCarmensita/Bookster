@@ -34,7 +34,7 @@ export default function LoginPage() {
   return (
     <div className="formContainer">
       <form onSubmit={(event) => handleSubmit(event, userCredentail, setServerMsg, navigate)}>
-        <h3 class="form-title">Login to Bookster</h3>
+        <h3 className="form-title">Login to Bookster</h3>
         <FormInputfields setUserCredential={setUserCredential} passwordType="password" />
         <p className="form-msg" data-testid="serverMsg">
           {serverMsg}
