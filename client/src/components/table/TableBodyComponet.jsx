@@ -14,15 +14,30 @@ import React from "react";
 import TableActionBtnComponet from "./TableActionBtnComponet";
 import TableOrderBtnComponent from "./TableOrderBtnComponent";
 
-export default function TableBodyComponet({ data, view, dispatch, role, setOrderMsg, index }) {
+export default function TableBodyComponet({
+  data,
+  view,
+  dispatch,
+  role,
+  setOrderMsg,
+  index,
+}) {
   return (
     <>
       <tbody>
         <tr>
-          <td data-testid={index + "title/username"}>{(view === "user" && data.username) || data.title}</td>
-          <td data-testid={index + "role"}>{(view === "user" && data.role) || data.author}</td>
-          {(view === "user" && <td>{data.purchases === undefined ? 0 : data.purchases.length} Purchases</td>) || (
-            <td> {data.quantity === 0 ? "Out of stock" : data.quantity + " left"}</td>
+          <td>{(view === "user" && data.username) || data.title}</td>
+          <td>{(view === "user" && data.role) || data.author}</td>
+          {(view === "user" && (
+            <td>
+              {data.purchases === undefined ? 0 : data.purchases.length}{" "}
+              Purchases
+            </td>
+          )) || (
+            <td>
+              {" "}
+              {data.quantity === 0 ? "Out of stock" : data.quantity + " left"}
+            </td>
           )}
           {view === "user" || role === null ? (
             <></>
@@ -31,7 +46,17 @@ export default function TableBodyComponet({ data, view, dispatch, role, setOrder
               <TableOrderBtnComponent data={data} setOrderMsg={setOrderMsg} />
             </td>
           )}
-          {(role === "ADMIN" && <td>{<TableActionBtnComponet view={view} dispatch={dispatch} data={data} index={index} />}</td>) || <></>}
+          {(role === "ADMIN" && (
+            <td>
+              {
+                <TableActionBtnComponet
+                  view={view}
+                  dispatch={dispatch}
+                  data={data}
+                />
+              }
+            </td>
+          )) || <></>}
         </tr>
       </tbody>
     </>

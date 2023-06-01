@@ -33,13 +33,11 @@ export default function LoginPage() {
 
   return (
     <form
-      onSubmit={
-        (event) => handleSubmit(event, userCredentail, setServerMsg, navigate)
-        // headerBtn()
+      onSubmit={(event) =>
+        handleSubmit(event, userCredentail, setServerMsg, navigate)
       }
     >
-      <h2>Login</h2>
-
+      <h3>Login</h3>
       <FormInputfields
         setUserCredential={setUserCredential}
         passwordType="password"

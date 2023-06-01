@@ -24,11 +24,25 @@ export default function FormInputfield({ setUserCredential, passwordType }) {
 
   return (
     <>
-      <label>username:</label>
-      <input type="text" data-testid="username" placeholder="Type your username..." name="username" onChange={(e) => handleInputValue(e.target)} />
+      <label>Username</label>
+      <input
+        className="form-input"
+        type="text"
+        data-testid="username"
+        placeholder="Type your username"
+        name="username"
+        onChange={(e) => handleInputValue(e.target)}
+      />
 
-      <label>Password:</label>
-      <input type={passwordType} data-testid="password" placeholder="Type your password..." name="password" onChange={(e) => handleInputValue(e.target)} />
+      <label>Password</label>
+      <input
+        className="form-input"
+        type={passwordType}
+        data-testid="password"
+        placeholder="Type your password"
+        name="password"
+        onChange={(e) => handleInputValue(e.target)}
+      />
     </>
   );
 }

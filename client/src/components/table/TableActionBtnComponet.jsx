@@ -10,7 +10,12 @@
 
 import React from "react";
 
-export default function TableActionBtnComponet({ view, dispatch, data, index }) {
+export default function TableActionBtnComponet({
+  view,
+  dispatch,
+  data,
+  index,
+}) {
   const hasRoleAdmin = () => {
     if (data.role === "ADMIN") return false;
     return true;
@@ -36,10 +41,15 @@ export default function TableActionBtnComponet({ view, dispatch, data, index }) 
   };
   return (
     <>
-      <button data-testid={index + "action"} disabled={!hasRoleAdmin()} onClick={(e) => handleClick(e)}>
+      <button
+        data-testid={index + "action"}
+        className="edit promote"
+        disabled={!hasRoleAdmin()}
+        onClick={(e) => handleClick(e)}
+      >
         {(view === "user" && "Promote") || "Edit"}
       </button>
-      <button value="delete" onClick={(e) => handleClick(e)}>
+      <button className="delete" value="delete" onClick={(e) => handleClick(e)}>
         Delete
       </button>
     </>

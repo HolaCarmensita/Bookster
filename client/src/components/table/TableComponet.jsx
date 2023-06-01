@@ -14,13 +14,21 @@ this component shows server message when the user order something with useState 
 
 import React, { useState } from "react";
 import TableBodyComponet from "./TableBodyComponet";
+import "./table.css";
 
-export default function TableComponet({ data, view, dispatch, role }) {
+export default function TableComponet({
+  data,
+  view,
+  dispatch,
+  role,
+  location,
+}) {
   const [orderMsg, setOrderMsg] = useState("");
   return (
     <div>
       <p>{orderMsg}</p>
-      <table>
+      <table data-cell="table_wrapper">
+        {/* <caption>Books</caption> */}
         <thead>
           <tr>
             <th>{(view === "user" && "Username") || "Book title"}</th>
@@ -31,7 +39,15 @@ export default function TableComponet({ data, view, dispatch, role }) {
           </tr>
         </thead>
         {data?.map((item, i) => (
-          <TableBodyComponet data={item} key={i} view={view} dispatch={dispatch} role={role} setOrderMsg={setOrderMsg} index={i} />
+          <TableBodyComponet
+            data={item}
+            key={i}
+            view={view}
+            dispatch={dispatch}
+            role={role}
+            setOrderMsg={setOrderMsg}
+            index={i}
+          />
         ))}
       </table>
     </div>

@@ -12,6 +12,7 @@ then the dispatch removes the item from the array
 
 import React, { useState } from "react";
 import adminService from "../../service/adminService";
+import "./EditBook.css";
 
 export default function EditBookComponent({ data, dispatch }) {
   const [book, setBook] = useState({ title: "", author: "", quantity: "" });
@@ -35,24 +36,43 @@ export default function EditBookComponent({ data, dispatch }) {
     return dispatch({ type: "clear-book", book: { ...data } });
   };
   return (
-    <div>
-      <h4>Edit {data.title}</h4>
-      <p>
-        <label>Title - {data.title}</label>
-        <input type="text" name="title" placeholder="Insert new title...." onChange={(e) => handleInputValue(e.target)} />
-      </p>
-      <p>
-        <label>Author - {data.author}</label>
-        <input type="text" name="author" placeholder="Insert new author...." onChange={(e) => handleInputValue(e.target)} />
-      </p>
-      <p>
-        <label>Quantity - {data.quantity}</label>
-        <input type="number" name="quantity" placeholder="Insert new quantity...." onChange={(e) => handleInputValue(e.target)} />
-      </p>
+    <div className="card">
+      <h4>Edit the book {data.title}</h4>
+      <div className="card-inputfield">
+        <label className="editBookLabel">Title: {data.title}</label>
+        <input
+          type="text"
+          name="title"
+          placeholder="Insert new title"
+          onChange={(e) => handleInputValue(e.target)}
+        />
+      </div>
+      <div className="card-inputfield">
+        <label>Author: {data.author}</label>
+        <input
+          type="text"
+          name="author"
+          placeholder="Insert author"
+          onChange={(e) => handleInputValue(e.target)}
+        />
+      </div>
+      <div className="card-inputfield">
+        <label>Quantity: {data.quantity}</label>
+        <input
+          type="number"
+          name="quantity"
+          placeholder="Insert quantity"
+          onChange={(e) => handleInputValue(e.target)}
+        />
+      </div>
 
-      <div>
+      <div className="card-buttons">
         <button onClick={() => handleClick()}>Save changes</button>
-        <button onClick={() => dispatch({ type: "clear-book", book: { ...data } })}>Discard changes</button>
+        <button
+          onClick={() => dispatch({ type: "clear-book", book: { ...data } })}
+        >
+          Discard changes
+        </button>
       </div>
     </div>
   );

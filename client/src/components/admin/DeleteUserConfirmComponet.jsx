@@ -18,12 +18,16 @@ export default function DeleteUserConfirmComponet({ data, dispatch }) {
     dispatch({ type: "clear-user", user: { ...data } });
   };
   return (
-    <div>
+    <div className="confirm">
       <h4>Change user settings</h4>
       <p>Are you sure you with to Delete user {data.username}</p>
 
       <button onClick={() => handleClick()}>Proceed</button>
-      <button onClick={() => dispatch({ type: "clear-user", user: { ...data } })}>Cancel</button>
+      <button
+        onClick={() => dispatch({ type: "clear-user", user: { ...data } })}
+      >
+        Cancel
+      </button>
     </div>
   );
 }
