@@ -4,17 +4,10 @@ import FormButtons from "../components/login&register/FormButtons";
 import { useNavigate } from "react-router";
 import memoryService from "../service/memoryService";
 import authService from "../service/authService";
-import React, { useState } from "react";
-import FormInputfields from "../components/login&register/FormInputfields";
-import FormButtons from "../components/login&register/FormButtons";
-import { useNavigate } from "react-router";
-import memoryService from "../service/memoryService";
-import authService from "../service/authService";
 
 export default function LoginPage() {
   const navigate = useNavigate();
   const [userCredentail, setUserCredential] = useState(undefined);
-  const [serverMsg, setServerMsg] = useState("");
   const [serverMsg, setServerMsg] = useState("");
 
   const handleSubmit = async (event, userCredentail, setServerMsg) => {
@@ -29,9 +22,7 @@ export default function LoginPage() {
     } else {
       const data = await response.json();
       memoryService.saveLocalValue("JWT_TOKEN", data.accessToken);
-      memoryService.saveLocalValue("JWT_TOKEN", data.accessToken);
       setServerMsg(data.message);
-      setTimeout(() => navigate("/browser"), 1000);
       setTimeout(() => navigate("/browser"), 1000);
     }
   };
