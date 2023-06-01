@@ -1,5 +1,4 @@
 .card-container {
-  background-color: white;
   display: grid;
   align-items: center;
 }
@@ -11,7 +10,10 @@
   padding: 3rem;
   margin: 2rem;
   border-radius: 0.2rem;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 100px rgb(54, 54, 54);
+  position: absolute;
+  top: 20rem;
+  background-color: white;
 }
 
 .card h4 {
@@ -33,7 +35,7 @@
 
 .card input {
   width: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   border: 0;
   padding: 1rem 0 1rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -73,6 +75,10 @@
   text-align: center;
   padding: 3rem;
   margin: 2rem;
+  position: absolute;
+  top: 10em;
+  background-color: white;
+  box-shadow: 2px 2px 100px rgb(106, 106, 106);
 }
 
 @media only screen and (max-width: 430px) {
