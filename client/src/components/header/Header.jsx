@@ -1,18 +1,25 @@
 import Button from "./HeaderButton";
+import "./Header.css";
+import { useEffect, useState } from "react";
+import authService from "../../service/authService";
+import { useLocation } from "react-router-dom";
 
-const webbAppName = "Bookster";
+function Header() {
+  const [username, setUsername] = useState(null);
+  const [path, setPath] = useState("");
+  const location = useLocation();
 
-function Header({ username }) {
-  // const [location,setLocation] = useState(global.window.location.pathname);
-  const location = global.window.location.pathname;
+  useEffect(() => {
+    setPath(location.pathname);
+    setUsername(authService.getUsername());
+  }, [location]);
+
   return (
-    <nav>
-      <h1 className="bookster-header">{webbAppName}</h1>
-      {(location === "/" && <></>) || (location === "/register" && <></>) || (username === undefined && <p>Guest</p>) || (
-        <p className="header-username">{username}</p>
-      )}
+    <nav className="header">
+      {(path === "/" && <></>) || (path === "/register" && <></>) || <p className="header-username">Welcome {(username === null && "Guest") || username}</p>}
+      <h1 className="header-title">Bookster</h1>
 
-      {(location === "/" && <></>) || (location === "/register" && <></>) || <Button username={username} />}
+      {(path === "/" && <></>) || (path === "/register" && <></>) || <Button username={username} />}
     </nav>
   );
 }

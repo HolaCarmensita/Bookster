@@ -4,18 +4,15 @@ import RegisterPage from "./pages/RegisterPage";
 import Header from "./components/header/Header";
 import BrowsingPage from "./pages/BrowsingPage";
 import AdminPage from "./pages/AdminPage";
-import { useState } from "react";
 
 function App() {
-  const [username, setUsername] = useState("");
-
   return (
     <>
-      <Header username={username} />
+      <Header />
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<LoginPage />} />
-          <Route path="/browser" element={<BrowsingPage setUsername={setUsername} />} />
+          <Route path="/browser" element={<BrowsingPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
