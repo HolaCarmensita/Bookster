@@ -18,5 +18,11 @@ function getLocalValue(ref) {
   return JSON.parse(value);
 }
 
-const memoryService = { saveLocalValue, getLocalValue };
+function removeLocalValue(ref) {
+  localStorage.removeItem(ref);
+
+  return "You have logged out";
+}
+
+const memoryService = { saveLocalValue, getLocalValue, removeLocalValue };
 export default memoryService;
