@@ -10,6 +10,7 @@ if it does it makes a http request to the server with the book object from useSt
 
 import React, { useState } from "react";
 import adminService from "../../service/adminService";
+import "./card.css";
 
 export default function AddBookComponent({ isOpen }) {
   const [book, setBook] = useState({ title: "", author: "", quantity: 0 });
@@ -28,22 +29,22 @@ export default function AddBookComponent({ isOpen }) {
     isOpen(false);
   };
   return (
-    <div>
-      <h4>Add a book</h4>
-      <p>
-        <label>Title - </label>
+    <div className="card">
+      <h4>Add a new book</h4>
+      <div className="card-inputfield">
+        <label>Title </label>
         <input type="text" name="title" placeholder="Insert new title...." onChange={(e) => handleInputValue(e.target)} />
-      </p>
-      <p>
-        <label>Author - </label>
+      </div>
+      <div className="card-inputfield">
+        <label>Author</label>
         <input type="text" name="author" placeholder="Insert new author...." onChange={(e) => handleInputValue(e.target)} />
-      </p>
-      <p>
-        <label>Quantity - </label>
+      </div>
+      <div className="card-inputfield">
+        <label>Quantity</label>
         <input type="number" name="quantity" placeholder="Insert new quantity...." onChange={(e) => handleInputValue(e.target)} />
-      </p>
+      </div>
 
-      <div>
+      <div className="card-buttons">
         <button value="add" onClick={(e) => handleClick(e)}>
           Add
         </button>

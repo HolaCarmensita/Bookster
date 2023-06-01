@@ -27,7 +27,6 @@ export function UseQuaryBookster(quary) {
         const result = await fetch("http://127.0.0.1:3030/library/books").then((resp) => resp.json());
         if (version === result.version) return false;
         setVersion(result.version);
-        console.log(result.version);
       }
     }, 1000);
     const resultIntervalId = setTimeout(async () => {

@@ -1,10 +1,10 @@
-import SignInOutButton from './SignInOutButton';
+import SignInOutButton from "./SignInOutButton";
 
 function BrowsingHeader({ buttonChild }, { userName }) {
   const borderStyle = {
-    border: '2px solid green',
-    width: '40%',
-    listStyleType: 'none',
+    border: "2px solid green",
+    width: "40%",
+    listStyleType: "none",
   };
 
   return (

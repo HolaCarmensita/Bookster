@@ -1,0 +1,28 @@
+.search {
+  font: inherit;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.4rem;
+}
+
+.search::placeholder {
+  opacity: 0.65;
+  font-size: 0.9rem;
+}
+
+.search:focus::placeholder {
+  color: black;
+  opacity: 0.65;
+}
+
+@media only screen and (max-width: 650px) {
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    border: 1px solid red;
+  }
+}

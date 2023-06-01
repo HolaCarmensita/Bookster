@@ -27,12 +27,20 @@ export default function LoginPage() {
     }
   };
 
+  // const headerBtn = () => {
+  //   return <button>sign out</button>;
+  // };
+
   return (
-    <form onSubmit={(event) => handleSubmit(event, userCredentail, setServerMsg, navigate)}>
-      <h3>Login</h3>
-      <FormInputfields setUserCredential={setUserCredential} passwordType="password" />
-      <p data-testid="serverMsg">{serverMsg}</p>
-      <FormButtons submitTxt="Sign in" isHidding={false} navigateTo="/register" />
-    </form>
+    <div className="formContainer">
+      <form onSubmit={(event) => handleSubmit(event, userCredentail, setServerMsg, navigate)}>
+        <h3 className="form-title">Login to Bookster</h3>
+        <FormInputfields setUserCredential={setUserCredential} passwordType="password" />
+        <p className="form-msg" data-testid="serverMsg">
+          {serverMsg}
+        </p>
+        <FormButtons submitTxt="Log in" isHidding={false} navigateTo="/register" />
+      </form>
+    </div>
   );
 }

@@ -27,22 +27,27 @@ export default function TableOrderBtnComponent({ data, setOrderMsg }) {
 
   const buyBook = async () => {
     if (amount === 0) return false;
-    const resp = await userService.buyBook({ title: data.title, quantity: amount });
+    const resp = await userService.buyBook({
+      title: data.title,
+      quantity: amount,
+    });
     const result = await resp.json();
     setOrderMsg(result.message);
     setTimeout(() => setOrderMsg(""), 5000);
   };
   return (
     <>
-      <button disabled={data.quantity === 0} value="minus" onClick={(e) => handleClick(e)}>
-        -
-      </button>
-      <span>{amount}</span>
-      <button disabled={data.quantity === 0} value="plus" onClick={(e) => handleClick(e)}>
-        +
-      </button>
+      <div className="changeAmount">
+        <button className="minusBtn" disabled={data.quantity === 0} value="minus" onClick={(e) => handleClick(e)}>
+          -
+        </button>
+        <span>{amount}</span>
+        <button className="plusBtn" disabled={data.quantity === 0} value="plus" onClick={(e) => handleClick(e)}>
+          +
+        </button>
+      </div>
 
-      <button data-testid="orderBtn" disabled={data.quantity === 0} onClick={() => buyBook()}>
+      <button data-testid="orderBtn" className="orderBtn" disabled={data.quantity === 0} onClick={() => buyBook()}>
         Order
       </button>
     </>
