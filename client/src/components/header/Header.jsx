@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Button from "./HeaderButton";
 
 const webbAppName = "Bookster";
@@ -9,11 +9,15 @@ function Header({ username }) {
   return (
     <nav>
       <h1 className="bookster-header">{webbAppName}</h1>
-      {(location === "/" && <></>) || (location === "/register" && <></>) || (username === undefined && <p>Guest</p>) || (
-        <p className="header-username">{username}</p>
-      )}
+      {(location === "/" && <></>) ||
+        (location === "/register" && <></>) ||
+        (username === undefined && <p>Guest</p>) || (
+          <p className="header-username">{username}</p>
+        )}
 
-      {(location === "/" && <></>) || (location === "/register" && <></>) || <Button username={username} />}
+      {(location === "/" && <></>) || (location === "/register" && <></>) || (
+        <Button username={username} />
+      )}
     </nav>
   );
 }

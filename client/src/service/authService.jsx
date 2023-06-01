@@ -67,5 +67,11 @@ function getUsername() {
   return getLocalJWTData().username;
 }
 
-const authService = { login, register, isAuthenticated, getRole, getUsername };
+const authService = {
+  login,
+  register,
+  isAuthenticated,
+  getRole,
+  getUsername,
+};
 export default authService;

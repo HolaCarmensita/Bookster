@@ -1,28 +1,23 @@
-// import { useLocation } from "react-router-dom";
-// import authService from "../../service/authService";
-// import memoryService from "../../service/memoryService";
-// import FormButtons from "./FormButtons";
+import { useNavigate } from "react-router-dom";
 
-function headerButton({ username }) {
+function HeaderButton({ username }) {
+  const navigate = useNavigate();
+
   const signOut = () => {
-    console.log("du har klickat på logga ut");
+    console.log("logga ut");
+  };
+
+  const signIn = () => {
+    window.location.reload(false);
   };
 
   return (
     <>
-      {(username === undefined && <button>Sign in</button>) || (
-        <button onClick={signOut}>Sign out</button>
-      )}
+      {(username === undefined && (
+        <button onClick={() => navigate("/") + signIn()}>Sign in</button>
+      )) || <button onClick={() => navigate("/") + signOut()}>Sign out</button>}
     </>
   );
 }
-// if (memoryService.getLocalValue("JWT_TOKEN") === null) {
-//   console.log("No auth");
-// } else {
-//   console.log("Auth");
-// }
 
-export default headerButton;
-
-//knapp om man är authoriserad eller inte = olika knappar
-// om knappen är tryckt kör funktion som kollar auth, beroende på auth
+export default HeaderButton;
