@@ -4,7 +4,17 @@
 // import FormButtons from "./FormButtons";
 
 function headerButton({ username }) {
-  return <>{(username === undefined && <button>Sign in</button>) || <button>Sign out</button>}</>;
+  const signOut = () => {
+    console.log("du har klickat på logga ut");
+  };
+
+  return (
+    <>
+      {(username === undefined && <button>Sign in</button>) || (
+        <button onClick={signOut}>Sign out</button>
+      )}
+    </>
+  );
 }
 // if (memoryService.getLocalValue("JWT_TOKEN") === null) {
 //   console.log("No auth");
