@@ -1,15 +1,23 @@
 .navbar {
   display: flex;
-  /* justify-content: space-between; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 1rem 0 1rem 0;
 }
 
-.navbar-buttons {
+.navigation {
   display: flex;
   gap: 1rem;
 }
-.navbar button {
+
+.book-features {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.adminBtn {
   font: inherit;
   background-color: transparent;
   border: none;
@@ -18,8 +26,6 @@
   text-align: bottom;
 }
 
-.books:hover,
-.user:hover,
-.addBook:hover {
+.adminBtn:hover {
   color: pink;
 }

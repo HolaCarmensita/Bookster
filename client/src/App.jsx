@@ -1,26 +1,26 @@
-import { Route, Routes } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import Header from "./components/header/Header";
-import BrowsingPage from "./pages/BrowsingPage";
-import AdminPage from "./pages/AdminPage";
-import { useState } from "react";
+import { Route, Routes } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import Header from './components/header/Header';
+import BrowsingPage from './pages/BrowsingPage';
+import AdminPage from './pages/AdminPage';
+import { useState } from 'react';
 
 function App() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
 
   return (
     <>
-      <div className="wrapper">
-        <Header username={username} />
+      <Header username={username} />
+      <div className='wrapper'>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path='/' element={<LoginPage />} />
           <Route
-            path="/browser"
+            path='/browser'
             element={<BrowsingPage setUsername={setUsername} />}
           />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/admin' element={<AdminPage />} />
         </Routes>
       </div>
     </>

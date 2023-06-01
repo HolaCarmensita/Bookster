@@ -12,9 +12,9 @@ dispatch is for reducer hooks to save data in an array
 this component shows server message when the user order something with useState and sends it down to its child
  */
 
-import React, { useState } from "react";
-import TableBodyComponet from "./TableBodyComponet";
-import "./table.css";
+import React, { useState } from 'react';
+import TableBodyComponet from './TableBodyComponet';
+import './table.css';
 
 export default function TableComponet({
   data,
@@ -23,32 +23,34 @@ export default function TableComponet({
   role,
   location,
 }) {
-  const [orderMsg, setOrderMsg] = useState("");
+  const [orderMsg, setOrderMsg] = useState('');
   return (
     <div>
       <p>{orderMsg}</p>
-      <table data-cell="table_wrapper">
+      <table data-cell='table_wrapper'>
         {/* <caption>Books</caption> */}
         <thead>
           <tr>
-            <th>{(view === "user" && "Username") || "Book title"}</th>
-            <th>{(view === "user" && "Role") || "Book author"}</th>
-            <th>{(view === "user" && "Purchases") || "Availability"}</th>
-            {view === "user" || role === null ? <></> : <th>Order</th>}
-            {(role === "ADMIN" && <th>Action</th>) || <></>}
+            <th>{(view === 'user' && 'Username') || 'Book title'}</th>
+            <th>{(view === 'user' && 'Role') || 'Book author'}</th>
+            <th>{(view === 'user' && 'Purchases') || 'Availability'}</th>
+            {view === 'user' || role === null ? <></> : <th>Order</th>}
+            {(role === 'ADMIN' && <th>Action</th>) || <></>}
           </tr>
         </thead>
-        {data?.map((item, i) => (
-          <TableBodyComponet
-            data={item}
-            key={i}
-            view={view}
-            dispatch={dispatch}
-            role={role}
-            setOrderMsg={setOrderMsg}
-            index={i}
-          />
-        ))}
+        <tbody>
+          {data?.map((item, i) => (
+            <TableBodyComponet
+              data={item}
+              key={i}
+              view={view}
+              dispatch={dispatch}
+              role={role}
+              setOrderMsg={setOrderMsg}
+              index={i}
+            />
+          ))}
+        </tbody>
       </table>
     </div>
   );

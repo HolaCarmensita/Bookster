@@ -3,15 +3,21 @@
 // import memoryService from "../../service/memoryService";
 // import FormButtons from "./FormButtons";
 
+import './headerBtn.css';
+
 function headerButton({ username }) {
   const signOut = () => {
-    console.log("du har klickat på logga ut");
+    console.log('du har klickat på logga ut');
   };
 
   return (
     <>
-      {(username === undefined && <button>Sign in</button>) || (
-        <button onClick={signOut}>Sign out</button>
+      {(username === undefined && (
+        <button className='headerBtn'>Sign in</button>
+      )) || (
+        <button className='headerBtn' onClick={signOut}>
+          Sign out
+        </button>
       )}
     </>
   );
