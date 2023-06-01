@@ -38,7 +38,6 @@ export function UseQuaryBookster(quary) {
         const result = await fetch("http://127.0.0.1:3030/library/books").then((resp) => resp.json());
         data = result.books;
       } else {
-        console.log(quary);
         const result = await fetch(`http://127.0.0.1:3030/library/books/search/${quary}`).then((resp) => resp.json());
         data = result.books;
       }

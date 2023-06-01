@@ -57,12 +57,12 @@ body {
 .orderBtn:disabled,
 .edit:disabled,
 .promote:disabled {
-  background: #21b778;
+  background: #16774f7e;
 }
 
-.orderBtn:hover,
-.edit:hover,
-.delete:hover {
+.orderBtn:hover:not([disabled]),
+.edit:hover:not([disabled]),
+.delete:hover:not([disabled]) {
   background-color: #21b778; /* Green */
 }
 

@@ -1,26 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SearchComponent from "../components/search/SearchComponent";
 import { UseQuaryBookster } from "../hooks/useQuaryBookster";
 import TableComponet from "../components/table/TableComponet";
 import authService from "../service/authService";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import "../components/login&register/form.css";
 
-function BrowsingPage({ setUsername }) {
-  const navigate = useNavigate();
+function BrowsingPage() {
   const [quary, setQuary] = useState("");
   const [role] = useState(authService.getRole());
   const { isLoading, error, data } = UseQuaryBookster(quary);
-  useEffect(() => {
-    if (authService.isAuthenticated()) {
-      setUsername(authService.getUsername);
-    } else {
-      setUsername(undefined);
-    }
-    if (role === "ADMIN") {
-      navigate("/admin");
-    }
-  }, [role, navigate, setUsername]);
+
+  if (role === "ADMIN") {
+    return <Navigate to="/admin" />;
+  }
 
   return (
     <div>

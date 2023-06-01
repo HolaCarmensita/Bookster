@@ -1,0 +1,43 @@
+.header {
+  font: inherit;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.header-title {
+  margin: 0 auto;
+  text-align: center;
+  color: #03c875;
+}
+
+.header-username {
+  text-align: center;
+  align-self: center;
+  font-size: 1.7rem;
+}
+
+.headerBtn {
+  font-size: 1.2rem;
+  padding: 0.1rem 2rem;
+  margin: 0.5rem;
+  background: #03c875;
+  border: none;
+  color: white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.header-info {
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 650px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
