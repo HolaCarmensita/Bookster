@@ -1,52 +1,58 @@
-import React from 'react';
-import TableActionBtnComponet from './TableActionBtnComponet';
-import TableOrderBtnComponent from './TableOrderBtnComponent';
+import React, { useState } from 'react';
+import userService from '../../service/userService';
 
-export default function TableBodyComponet({
-  data,
-  view,
-  dispatch,
-  role,
-  setOrderMsg,
-}) {
+export default function TableOrderBtnComponent({ data, setOrderMsg }) {
+  const [amount, setAmount] = useState(0);
+
+  const handleClick = (e) => {
+    if (e.target.value === 'minus') {
+      if (amount === 0) return false;
+      setAmount(amount - 1);
+    } else {
+      if (amount >= data.quantity) return false;
+      setAmount(amount + 1);
+    }
+  };
+
+  const buyBook = async () => {
+    if (amount === 0) return false;
+    const resp = await userService.buyBook({
+      title: data.title,
+      quantity: amount,
+    });
+    const result = await resp.json();
+    setOrderMsg(result.message);
+    setTimeout(() => setOrderMsg(''), 5000);
+  };
   return (
     <>
-      <tr>
-        <td data_cell='title'>
-          {(view === 'user' && data.username) || data.title}
-        </td>
-        <td data_cell='author'>
-          {(view === 'user' && data.role) || data.author}
-        </td>
-        {(view === 'user' && (
-          <td data_cell='purchases'>
-            {data.purchases === undefined ? 0 : data.purchases.length} Purchases
-          </td>
-        )) || (
-          <td data_cell='quantity'>
-            {' '}
-            {data.quantity === 0 ? 'Out of stock' : data.quantity + ' left'}
-          </td>
-        )}
-        {view === 'user' || role === null ? (
-          <></>
-        ) : (
-          <td data_cell='order' className='order'>
-            <TableOrderBtnComponent data={data} setOrderMsg={setOrderMsg} />
-          </td>
-        )}
-        {(role === 'ADMIN' && (
-          <td data_cell='action' className='action'>
-            {
-              <TableActionBtnComponet
-                view={view}
-                dispatch={dispatch}
-                data={data}
-              />
-            }
-          </td>
-        )) || <></>}
-      </tr>
+      <div className='changeAmount'>
+        <button
+          className='minusBtn'
+          disabled={data.quantity === 0}
+          value='minus'
+          onClick={(e) => handleClick(e)}
+        >
+          -
+        </button>
+        <span>{amount}</span>
+        <button
+          className='plusBtn'
+          disabled={data.quantity === 0}
+          value='plus'
+          onClick={(e) => handleClick(e)}
+        >
+          +
+        </button>
+      </div>
+
+      <button
+        className='orderBtn'
+        disabled={data.quantity === 0}
+        onClick={() => buyBook()}
+      >
+        Order
+      </button>
     </>
   );
 }
