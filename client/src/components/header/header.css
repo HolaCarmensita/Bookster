@@ -1,0 +1,42 @@
+.header-container {
+  /* background-color: #000000; */
+}
+
+.header {
+  display: flex;
+  padding: 1rem;
+  background-color: transparent;
+}
+
+.header-title {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid green; */
+}
+
+.header-left {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* border: 2px solid blue; */
+}
+
+.headerBtn {
+  font: inherit;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  background: #03c875;
+  border: none;
+  color: white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 650px) {
+  .header {
+    display: none;
+  }
+}
