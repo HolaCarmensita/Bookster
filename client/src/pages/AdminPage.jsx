@@ -7,6 +7,7 @@ import AddBookComponent from "../components/admin/AddBookComponent";
 import SearchComponent from "../components/search/SearchComponent";
 import authService from "../service/authService";
 import { Navigate } from "react-router-dom";
+import "./navbar.css";
 
 export default function AdminPage({ test }) {
   const [view, setView] = useState("books");
@@ -28,20 +29,32 @@ export default function AdminPage({ test }) {
 
   return (
     <>
-      <div>
-        {(view === "books" && <SearchComponent setQuary={setQuary} view={view} />) || null}
-        <button value="books" data-testid="viewBookBtn" onClick={(e) => handleClick(e)}>
+      <div className="navbar">
+        <button className="books" value="books" data-testid="viewBookBtn" onClick={(e) => handleClick(e)}>
           Books
         </button>
-        <button data-testid="viewUserBtn" value="user" onClick={(e) => handleClick(e)}>
+
+        <button className="user" data-testid="viewUserBtn" value="user" onClick={(e) => handleClick(e)}>
           Users
         </button>
 
-        {view === "books" && <button onClick={() => setAddBook(true)}>Add Book</button>}
+        {view === "books" && (
+          <button className="addBook" onClick={() => setAddBook(true)}>
+            Add Book
+          </button>
+        )}
+
+        {(view === "books" && <SearchComponent setQuary={setQuary} view={view} />) || null}
+      </div>
+
+      <div className="card-container">
         {addBook && <AddBookComponent isOpen={setAddBook} />}
         {item?.map((data, i) => (
           <ConfirmRouterComponent item={data} key={i} dispatch={dispatch} />
         ))}
+      </div>
+
+      <div className="tableAdmin">
         {(error && <p>404 could not found</p>) || (isLoading && <p>loading...</p>) || (
           <TableComponet data={data} view={view} dispatch={dispatch} role="ADMIN" />
         )}

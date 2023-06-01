@@ -12,12 +12,14 @@ function App() {
   return (
     <>
       <Header username={username} />
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/browser" element={<BrowsingPage setUsername={setUsername} />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/admin" element={<AdminPage />} />
-      </Routes>
+      <div className="wrapper">
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/browser" element={<BrowsingPage setUsername={setUsername} />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+        </Routes>
+      </div>
     </>
   );
 }

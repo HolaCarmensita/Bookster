@@ -18,12 +18,13 @@ export default function DeleteBookConfirmComponent({ data, dispatch }) {
     dispatch({ type: "clear-book", book: { ...data } });
   };
   return (
-    <div>
-      <h4>Delete book</h4>
-      <p>Are you sure you with to Delete the book {data.title}</p>
-
-      <button onClick={() => handleClick()}>Proceed</button>
-      <button onClick={() => dispatch({ type: "clear-book", book: { ...data } })}>Cancel</button>
+    <div className="confirm">
+      <h4>You are about to delete a book</h4>
+      <p>Are you sure you want to delete the book "{data.title}"?</p>
+      <div className="confirm-buttons">
+        <button onClick={() => handleClick()}>Proceed</button>
+        <button onClick={() => dispatch({ type: "clear-book", book: { ...data } })}>Cancel</button>
+      </div>
     </div>
   );
 }

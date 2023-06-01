@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 1rem;
+  padding: 1rem 0 1rem 0;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 1rem;
+}
+.navbar button {
+  font: inherit;
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  text-align: bottom;
+}
+
+.books:hover,
+.user:hover,
+.addBook:hover {
+  color: pink;
+}
