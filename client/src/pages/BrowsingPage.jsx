@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import BrowsingHeader from '../components/Browsing/BrowsingHeader';
 import SearchComponent from '../components/search/SearchComponent';
 import { UseQuaryBookster } from '../hooks/useQuaryBookster';
 import TableComponet from '../components/table/TableComponet';
