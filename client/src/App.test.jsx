@@ -62,7 +62,7 @@ test("Admin ska kunna göra user till admin,för att fler ska kunna hålla sidan
   fireEvent.click(viewUserBtn);
 
   // const userRole = screen.getByTestId("2role");
-  const userRole = await screen.findByTestId("2role", "", { timeout: 3000 });
+  const userRole = await screen.findByTestId("2role", "", { timeout: 2000 });
 
   expect(userRole.innerHTML).toBe("ADMIN");
 });

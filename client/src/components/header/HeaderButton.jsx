@@ -1,28 +1,45 @@
-// import { useLocation } from "react-router-dom";
-// import authService from "../../service/authService";
-// import memoryService from "../../service/memoryService";
-// import FormButtons from "./FormButtons";
+/**
+ *
+ * author Madelene Fasth
+ *
+ * date 23-06-01
+ *
+ * knapp om man är authoriserad eller inte = olika knappar, om knappen är tryckt kör funktion som kollar auth, beroende på auth
+ *
+ */
 
-function headerButton({ username }) {
-  const signOut = () => {
-    console.log("du har klickat på logga ut");
+import { useState } from "react";
+import memoryService from "../../service/memoryService";
+import { useNavigate } from "react-router-dom";
+
+function HeaderButton({ username }) {
+  const navigate = useNavigate();
+  const [message, setMessage] = useState("");
+  const handleClick = (e) => {
+    if (e.target.value === "logOut") {
+      const msg = memoryService.removeLocalValue("JWT_TOKEN");
+      setMessage(msg);
+    } else {
+      setMessage("you will be redirected");
+    }
+
+    setTimeout(() => navigate("/"), 1000);
   };
 
   return (
     <>
-      {(username === undefined && <button>Sign in</button>) || (
-        <button onClick={signOut}>Sign out</button>
+      <p className="header-info">{message}</p>
+      {(username === null && (
+        <button className="headerBtn" value="logIn" onClick={(e) => handleClick(e)}>
+          Sign in
+        </button>
+      )) || (
+        <button className="headerBtn" value="logOut" onClick={(e) => handleClick(e)}>
+          Sign out
+        </button>
       )}
     </>
   );
 }
-// if (memoryService.getLocalValue("JWT_TOKEN") === null) {
-//   console.log("No auth");
-// } else {
-//   console.log("Auth");
-// }
 
-export default headerButton;
-
-//knapp om man är authoriserad eller inte = olika knappar
-// om knappen är tryckt kör funktion som kollar auth, beroende på auth
+export default HeaderButton;

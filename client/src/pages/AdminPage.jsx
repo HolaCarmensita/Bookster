@@ -17,8 +17,7 @@ export default function AdminPage({ test }) {
   const { isLoading, error, data } = UseQuaryBookster(quary);
   const [role] = useState(authService.getRole);
 
-  if (role === "USER" || test === false) {
-    console.log("hej");
+  if (role !== "ADMIN" && test === false) {
     return <Navigate to="/" />;
   }
 
