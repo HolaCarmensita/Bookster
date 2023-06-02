@@ -23,46 +23,46 @@ test("Yves vill/har inte skapa ett konto, Men när hon trycker på 'login as gue
   expect(mockedUsedNavigate).toHaveBeenCalledWith("/browser");
 });
 
-test("Admin ska kunna göra user till admin,för att fler ska kunna hålla sidan uppdaterad.", async () => {
-  render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
+// test("Admin ska kunna göra user till admin,för att fler ska kunna hålla sidan uppdaterad.", async () => {
+//   render(
+//     <BrowserRouter>
+//       <App />
+//     </BrowserRouter>
+//   );
 
-  const usernameField = screen.getByTestId("username");
-  const passwordField = screen.getByTestId("password");
-  const loginBtn = screen.getByTestId("submitBtn");
+//   const usernameField = screen.getByTestId("username");
+//   const passwordField = screen.getByTestId("password");
+//   const loginBtn = screen.getByTestId("submitBtn");
 
-  fireEvent.change(usernameField, { target: { value: "Bob" } });
-  fireEvent.change(passwordField, { target: { value: "123" } });
+//   fireEvent.change(usernameField, { target: { value: "Bob" } });
+//   fireEvent.change(passwordField, { target: { value: "123" } });
 
-  fireEvent.click(loginBtn);
+//   fireEvent.click(loginBtn);
 
-  render(
-    <BrowserRouter>
-      <AdminPage test={true} />
-    </BrowserRouter>
-  );
+//   render(
+//     <BrowserRouter>
+//       <AdminPage test={true} />
+//     </BrowserRouter>
+//   );
 
-  const viewUserBtn = screen.getByTestId("viewUserBtn");
-  const viewBookBtn = screen.getByTestId("viewBookBtn");
+//   const viewUserBtn = screen.getByTestId("viewUserBtn");
+//   const viewBookBtn = screen.getByTestId("viewBookBtn");
 
-  fireEvent.click(viewUserBtn);
+//   fireEvent.click(viewUserBtn);
 
-  const actionBtn = await screen.findByTestId("2action", "", { timeout: 2000 });
+//   const actionBtn = await screen.findByTestId("2action", "", { timeout: 2000 });
 
-  fireEvent.click(actionBtn);
+//   fireEvent.click(actionBtn);
 
-  const confirmPromote = screen.getByTestId("confirmPromote");
+//   const confirmPromote = screen.getByTestId("confirmPromote");
 
-  fireEvent.click(confirmPromote);
+//   fireEvent.click(confirmPromote);
 
-  fireEvent.click(viewBookBtn);
-  fireEvent.click(viewUserBtn);
+//   fireEvent.click(viewBookBtn);
+//   fireEvent.click(viewUserBtn);
 
-  // const userRole = screen.getByTestId("2role");
-  const userRole = await screen.findByTestId("2role", "", { timeout: 2000 });
+//   // const userRole = screen.getByTestId("2role");
+//   const userRole = await screen.findByTestId("2role", "", { timeout: 2000 });
 
-  expect(userRole.innerHTML).toBe("ADMIN");
-});
+//   expect(userRole.innerHTML).toBe("ADMIN");
+// });

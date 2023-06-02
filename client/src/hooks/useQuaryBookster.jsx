@@ -29,7 +29,7 @@ export function UseQuaryBookster(quary) {
         setVersion(result.version);
       }
     }, 1000);
-    const resultIntervalId = setTimeout(async () => {
+    const resultTimeoutvalId = setTimeout(async () => {
       let data = undefined;
       if (quary === "user") {
         const result = await adminService.getUsers();
@@ -51,7 +51,7 @@ export function UseQuaryBookster(quary) {
 
     return () => {
       clearInterval(id);
-      clearTimeout(resultIntervalId);
+      clearTimeout(resultTimeoutvalId);
     };
   }, [quary, version]);
 
