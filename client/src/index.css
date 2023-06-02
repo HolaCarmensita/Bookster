@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  color: black;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 90vw;
+}
+
+.minusBtn,
+.plusBtn {
+  background-color: transparent;
+  color: black;
+  padding: 0.1rem;
+  border: 0;
+}
+
+.orderBtn,
+.edit,
+.delete,
+.login,
+.guest,
+.proceed-btn,
+.cancel-btn,
+[type="proceed-btn"] {
+  font: inherit;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  background: #03c875;
+  border: none;
+  color: white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+/* button {
+  font: inherit;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  background: #03c875;
+  border: none;
+  color: white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+} */
+
+.orderBtn:disabled,
+.edit:disabled,
+.promote:disabled {
+  background: #16774f7e;
+}
+
+.orderBtn:hover:not([disabled]),
+.edit:hover:not([disabled]),
+.delete:hover:not([disabled]) {
+  background-color: #21b778; /* Green */
+}
+
+@media only screen and (max-width: 650px) {
+  .wrapper {
+    margin: 0 auto;
+    width: 100vw;
+  }
+}
