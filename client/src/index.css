@@ -29,7 +29,10 @@ body {
 .edit,
 .delete,
 .login,
-.guest {
+.guest,
+.proceed-btn,
+.cancel-btn,
+[type="proceed-btn"] {
   font: inherit;
   padding: 0.5rem;
   margin: 0.2rem;

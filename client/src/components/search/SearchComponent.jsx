@@ -8,6 +8,7 @@ the parent send setQuary from a useState that search component takes and send it
  */
 
 import React from "react";
+import "./searchcomponent.css";
 
 export default function SearchComponent({ setQuary }) {
   return (

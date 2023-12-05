@@ -17,14 +17,24 @@ export default function PromoteConfirmationComponent({ data, dispatch }) {
     dispatch({ type: "clear-user", user: { ...data } });
   };
   return (
-    <div>
+    <div className="confirm">
       <h4>Change user settings</h4>
       <p>Are you sure you want to Promote user {data.username}</p>
-
-      <button data-testid="confirmPromote" onClick={() => handleClick()}>
-        Proceed
-      </button>
-      <button onClick={() => dispatch({ type: "clear-user", user: { ...data } })}>Cancel</button>
+      <div className="button-container">
+        <button
+          className="proceed-btn"
+          data-testid="confirmPromote"
+          onClick={() => handleClick()}
+        >
+          Proceed
+        </button>
+        <button
+          className="cancel-btn"
+          onClick={() => dispatch({ type: "clear-user", user: { ...data } })}
+        >
+          Cancel
+        </button>
+      </div>
     </div>
   );
 }
